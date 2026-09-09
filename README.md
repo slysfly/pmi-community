@@ -1,4 +1,4 @@
-# 通维 PMI 中国社区官网 / Tongwei PMI China Community Site
+#  PMI 中国社区官网 / PMI China Community Site
 
 **PMI 中国 AI 项目管理社区官网** —— 由北京通维管理咨询有限公司提供技术支持。
 The official website for the **PMI China AI Project-Management Community**, with technical support from Beijing Tongwei Management Consulting Co., Ltd.
@@ -43,7 +43,6 @@ Licensed under the **MIT License** — see [LICENSE](./LICENSE).
 
 - **使用方 / User Community**: PMI 中国 AI 项目管理社区
 - **技术支持 / Technical Support**: 北京通维管理咨询有限公司
-- **口号 / Slogan**: 通万物之变，维四海之安
 - **联系 / Contact**: [jiafei@twzx.bj.cn](mailto:jiafei@twzx.bj.cn)
 - 需要进社区群的，请通过邮箱联系 / To join the community group, please reach out via email.
 
