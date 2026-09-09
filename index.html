@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="pyD6jqZQx2HBfhwzEsitUf">
+<head data-page-node-id="BIYIyPeuxwRKU659HL1WVK">
+<meta charset="UTF-8" data-page-node-id="t838Xekcl6a7DpKEk42lCc">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="eQYYxxVYCbxwv24BBAxEbD">
+<title>PMI中国AI项目管理社区</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="PMI中国AI项目管理社区——连接68万PMI人才生态，提供AIPM智能体平台、行业案例库与Agent工具库。" data-page-node-id="MFO2P3bWYoAhcXTV8IgDXk">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --deep-navy: #0a0e1a;
+  --navy-mid: #0d1b2a;
+  --pmi-blue: #003DA5;
+  --pmi-blue-glow: #0066ff;
+  --gold: #c9a961;
+  --gold-light: #e8d5a0;
+  --cyan: #00f5d4;
+  --purple: #7b2cbf;
+  --text-primary: #ffffff;
+  --text-secondary: #8892a4;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--deep-navy);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===== 导航栏 ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.15em;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+/* AIPM³ Logo设计 */
+.logo-mark {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.logo-text .main {
+  color: var(--text-primary);
+}
+
+/* PMI官方风格配色：模块化字母 */
+.logo-text .ai { color: #FF6F00; } /* AI = 活力橙 */
+.logo-text .pm { color: #00C1DE; } /* PM = 专业青 */
+.logo-text .cube {
+  color: #8B5CF6; /* ³ = 紫 = 智能进阶 */
+  font-size: 1rem;
+  font-weight: 700;
+  vertical-align: super;
+  position: relative;
+  top: -0.4em;
+}
+
+.logo-text .sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 1px solid var(--glass-border);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy) !important;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
+}
+
+.nav-cta::after { display: none !important; }
+
+/* ===== Hero Section ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem 4rem;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 61, 165, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(0, 245, 212, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(123, 44, 191, 0.15) 0%, transparent 50%);
+  z-index: 1;
+}
+
+#particles-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text { animation: fadeInUp 1s ease-out; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.hero-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--cyan);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #fff 0%, #8892a4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy);
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(201, 169, 97, 0.4);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: var(--glass-bg);
+  border-color: var(--gold);
+}
+
+/* Hero Visual */
+.hero-visual {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.floating-card {
+  position: absolute;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.card-1 {
+  width: 300px;
+  top: 10%;
+  left: 0;
+  animation: float1 6s ease-in-out infinite;
+}
+
+.card-2 {
+  width: 260px;
+  top: 40%;
+  right: 0;
+  animation: float2 7s ease-in-out infinite;
+}
+
+.card-3 {
+  width: 220px;
+  bottom: 10%;
+  left: 15%;
+  animation: float3 8s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px) rotate(3deg); }
+  50% { transform: translateY(-15px) rotate(-1deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(5deg); }
+}
+
+.card-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--pmi-blue), var(--cyan));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== 数据展示条 ===== */
+.stats-bar {
+  background: linear-gradient(90deg, var(--navy-mid), var(--deep-navy));
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.stats-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card { text-align: center; padding: 1.5rem; }
+
+.stat-card .number {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card .label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ===== 核心方法论 ===== */
+.section { padding: 6rem 2rem; max-width: 1400px; margin: 0 auto; }
+
+.section-header { text-align: center; margin-bottom: 4rem; }
+
+.section-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+.method-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.method-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+
+.method-card:hover::before { transform: scaleX(1); }
+
+.method-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  border-color: rgba(201, 169, 97, 0.3);
+}
+
+.method-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--pmi-blue), var(--purple));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 61, 165, 0.3);
+}
+
+.method-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.method-desc { color: var(--text-secondary); line-height: 1.7; }
+
+.method-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+}
+
+/* ===== 核心资产 ===== */
+.assets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+.asset-card {
+  background: linear-gradient(135deg, rgba(0, 61, 165, 0.1), rgba(0, 245, 212, 0.05));
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.asset-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(201, 169, 97, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.asset-card:hover::after { opacity: 1; }
+.asset-card:hover { transform: scale(1.05); border-color: var(--gold); }
+
+.asset-icon { font-size: 3rem; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+
+.asset-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.5px;
+}
+
+.asset-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.asset-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== 品牌主张 ===== */
+.quote-section {
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 3.5rem;
+  background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(0, 245, 212, 0.05));
+  border: 1px solid rgba(201, 169, 97, 0.25);
+  border-radius: 20px;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.quote-container::before {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 8rem;
+  color: rgba(201, 169, 97, 0.15);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.quote-text {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--gold);
+}
+
+.quote-author {
+  text-align: right;
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-author::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  vertical-align: middle;
+  margin-right: 0.75rem;
+}
+
+/* ===== CTA Section ===== */
+.cta-section { padding: 6rem 2rem; text-align: center; position: relative; }
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--pmi-blue), var(--purple));
+  opacity: 0.1;
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.cta-desc { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 3rem; }
+
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ===== 页脚 ===== */
+.footer {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--glass-border);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content { max-width: 1200px; margin: 0 auto; }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-copy {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.footer-filing {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.footer-filing a { color: var(--text-secondary); text-decoration: none; }
+.footer-filing a:hover { color: var(--gold); }
+
+/* ===== 响应式 ===== */
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-text { order: 2; }
+  .hero-visual { order: 1; height: 300px; }
+  .hero-buttons { justify-content: center; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .method-grid, .assets-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero { padding: 5rem 1.5rem 3rem; }
+  .stat-card .number { font-size: 2rem; }
+  .floating-card { display: none; }
+}
+
+/* ===== 滚动动画 ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body data-page-node-id="ha75AP0LmF31mMYBfZsPCI">
+
+<!-- 导航栏 -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 左上 - 活力橙 -->
+          <rect x="10" y="10" width="35" height="35" rx="6" fill="#FF6F00"/>
+          <!-- 右上 - 专业青 -->
+          <rect x="55" y="10" width="35" height="35" rx="6" fill="#00C1DE"/>
+          <!-- 左下 - 智慧紫 -->
+          <rect x="10" y="55" width="35" height="35" rx="6" fill="#8B5CF6"/>
+          <!-- 右下 - 生态绿 -->
+          <rect x="55" y="55" width="35" height="35" rx="6" fill="#00E5A0"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="ai">AI</span><span class="pm">PM</span><span class="cube">³</span>
+        <span class="sub">PMI中国AI项目管理社区</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">首页</a></li>
+      <li><a href="https://www.twzx.bj.cn/cases.html" target="_blank">行业案例库</a></li>
+      <li><a href="/agents.html">智能体能力</a></li>
+      <li><a href="/knowledge.html">知识库</a></li>
+      <li><a href="/ai-assist.html">AI问答助手</a></li>
+      <li><a href="/join.html">加入社区</a></li>
+      <li><a href="https://aipm.pmi.bj.cn" class="nav-cta" target="_blank">进入系统 →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- 英雄区 -->
+<section class="hero">
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">🚀 AI × 项目管理</div>
+      <h1>用AI重构<br/><em>项目管理的未来</em></h1>
+      <p class="hero-subtitle">连接68万PMI人才生态，用AIPM智能体平台与1400+实战案例，帮你把AI真正用进项目流程。</p>
+      <div class="hero-buttons">
+        <a href="https://aipm.pmi.bj.cn" target="_blank" class="btn btn-primary">免费试用AIPM</a>
+        <a href="https://www.twzx.bj.cn/cases.html" target="_blank" class="btn btn-secondary">浏览案例库</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-1">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">智能立项引擎</div>
+        <div class="card-desc">一句话生成项目章程与目标，AI自动拆解WBS与里程碑</div>
+      </div>
+      <div class="floating-card card-2">
+        <div class="card-icon">📊</div>
+        <div class="card-title">进度驾驶舱</div>
+        <div class="card-desc">多项目一屏掌控，实时预警延期与超支风险</div>
+      </div>
+      <div class="floating-card card-3">
+        <div class="card-icon">🛡️</div>
+        <div class="card-title">风险雷达</div>
+        <div class="card-desc">AI驱动的风险识别与应对建议</div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- 数据统计条 -->
+<div class="stats-bar" data-page-node-id="Ab1ZfaCsADXJ0Pk06t5ilm">
+  <div class="stats-grid" data-page-node-id="wFHMmywGNMCji8Q5g1cfXj">
+    <div class="stat-card reveal" data-page-node-id="FHMy7kh8GmlCRXimnGIvYN">
+      <div class="number" data-target="61" data-page-node-id="2aS9rPSErMKVCEjHCq2VUA">0</div>
+      <div class="label" data-page-node-id="JKw0wvYrqsNKqqSCXwpKyF">智能体 Agent</div>
+    </div>
+    <div class="stat-card reveal" data-page-node-id="HUeBItC3e55CMEeb9wHnOs">
+      <div class="number" data-target="248" data-page-node-id="7OHDKu0KETWE6jHb2ewhHd">0</div>
+      <div class="label" data-page-node-id="Yf7HVgacnchNbO2yzbfwre">技能 Skill</div>
+    </div>
+    <div class="stat-card reveal" data-page-node-id="2mUGyOqO1sTyCAYBXsw7Iz">
+      <div class="number" data-target="11" data-page-node-id="t7MbTQknKaIvgPYs42hV80">0</div>
+      <div class="label" data-page-node-id="qgdHwufk34BfsGresxIrPh">工作流 Workflow</div>
+    </div>
+    <div class="stat-card reveal" data-page-node-id="c8qEAgM57si8ySK8lBJ8Hj">
+      <div class="number" data-target="1400" data-page-node-id="IP7eiAH2OmbYzvVrgyUAEF">0</div>
+      <div class="label" data-page-node-id="7IbyYWvcFHwrN2opnDb77F">行业案例 Cases</div>
+    </div>
+  </div>
+</div>
+
+<!-- 核心方法论 -->
+<section class="section" data-page-node-id="fWSOhGSI4upKWuCFMqFhHf">
+  <div class="section-header reveal" data-page-node-id="vLGHSDAiamDdXQHcVHBNa4">
+    <div class="section-tag" data-page-node-id="U2dLI94PVHNpDUCx2d0Oz7">核心方法论</div>
+    <h2 class="section-title" data-page-node-id="TguQIDn1AicvZ2OMSd3jtI">学 · 练 · 用 闭环体系</h2>
+    <p class="section-desc" data-page-node-id="jNLgL2KWgfbO1GgeKooCWO">从理论到实践，从学习到应用，全方位赋能项目经理</p>
+  </div>
+  
+  <div class="method-grid" data-page-node-id="KpI2PH90RD4LvUHr4ZhzG8">
+    <div class="method-card reveal" data-page-node-id="tHdgQcd8X9890Pe66Qxaes">
+      <span class="method-number" data-page-node-id="B3Onc8S4SiKi3FAJDrCcAS">01</span>
+      <div class="method-icon" data-page-node-id="eFVx8sfPxyfe5vBHavm3pd">📖</div>
+      <h3 class="method-title" data-page-node-id="ZvBtjrkMnt0TErDFt3QJwd">学</h3>
+      <p class="method-desc" data-page-node-id="gLBVHBhYmX0m0mRmGNVQlv">体系化AI×PM课程，配套PDU助力续证。涵盖PMBOK、敏捷、AI转型等核心主题。</p>
+    </div>
+    <div class="method-card reveal" data-page-node-id="v4o1g5L0WtrG6oZFMiDLiT">
+      <span class="method-number" data-page-node-id="9OYdfkQmqEtzAkaZTtRbjJ">02</span>
+      <div class="method-icon" data-page-node-id="XypoWEOqyL4TL4YbVShZcN">⚙️</div>
+      <h3 class="method-title" data-page-node-id="mzEaWUluG18dl56E1yM5bY">练</h3>
+      <p class="method-desc" data-page-node-id="E0Uik7HJsUvi3ncm7pgUQr">AIPM智能体平台开箱即用，130个AI助手覆盖全流程。从立项到验收，每个环节都有AI协同。</p>
+    </div>
+    <div class="method-card reveal" data-page-node-id="mOe4dhoNMBM3ggZHHPuLUC">
+      <span class="method-number" data-page-node-id="KhCZ9hV81JjjCAnfznZLgj">03</span>
+      <div class="method-icon" data-page-node-id="IoWZDsFi2Uec1hULXarV6g">✅</div>
+      <h3 class="method-title" data-page-node-id="PeMoiG46H9qAH1qq2Pkigv">用</h3>
+      <p class="method-desc" data-page-node-id="Y92mhkrUfT1MMQ71J2jy1c">以1400+行业案例为参照，嵌入真实项目场景。在实践中验证，在验证中迭代。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 核心资产 -->
+<section class="section" data-page-node-id="M9lK2qBJDNbRSWaBeQhf96">
+  <div class="section-header reveal" data-page-node-id="ZRL0apovD6MAHzAm1R8wEl">
+    <div class="section-tag" data-page-node-id="slJ3PsKknHhFgIZrkmmL5k">核心资产</div>
+    <h2 class="section-title" data-page-node-id="iya363AOrQ0JH4r1bv8eBT">三大核心能力</h2>
+    <p class="section-desc" data-page-node-id="gUIKECxRGzcH2U89xjapvq">平台、智能体、案例库，构建完整AI项目管理生态</p>
+  </div>
+  
+  <div class="assets-grid" data-page-node-id="DO5AyEpveolQhnTzTl31dr">
+    <div class="asset-card reveal" onclick="window.open('https://aipm.pmi.bj.cn', '_blank')" data-page-node-id="mShMwnJWU3HTbxwsBl9kPk">
+      <div class="asset-icon" data-page-node-id="hm8bb4akjKG9k117fwt4r4">🏢</div>
+      <div class="asset-name" data-page-node-id="feUhMFbZSSOTBjm0VDvYvB">AIPM智能体平台</div>
+      <div class="asset-number" data-page-node-id="TV0Zuk98W0gKywfzXJZvfK">—</div>
+      <div class="asset-label" data-page-node-id="Hn5fJZxNhSsodrZQPZDH5W">AI驱动的项目管理操作系统</div>
+    </div>
+    <div class="asset-card reveal" onclick="window.location.href='/agents.html'" data-page-node-id="U98F9ccExBpr7tIbPgvSgt">
+      <div class="asset-icon" data-page-node-id="oj7od6SB7gc3ujcDFMlOIC">🤖</div>
+      <div class="asset-name" data-page-node-id="mCdGlBd3WI4s8ggRekolCL">智能体Agent库</div>
+      <div class="asset-number" data-page-node-id="sBUwMemGrBLiZNeaGP84hv">130+</div>
+      <div class="asset-label" data-page-node-id="e0IBDiacweDXf73RSnuTWK">覆盖全流程的智能助手集群</div>
+    </div>
+    <div class="asset-card reveal" onclick="window.open('https://www.twzx.bj.cn/cases.html', '_blank')" data-page-node-id="END5QiRUZsUUfoghMgBcFi">
+      <div class="asset-icon" data-page-node-id="0cVxuPNcCEMopbGQtAqhSC">📊</div>
+      <div class="asset-name" data-page-node-id="looTBd1L3KmMn4QamF5wih">OCE行业案例库</div>
+      <div class="asset-number" data-page-node-id="0517r5ZCsm56kZa6n4PGci">1400+</div>
+      <div class="asset-label" data-page-node-id="cQ8aO9Q6iLCcuE4YcIXhKT">14个行业、101个场景的实战沉淀</div>
+    </div>
+  </div>
+</section>
+
+<!-- 品牌主张 -->
+<section class="quote-section" data-page-node-id="jr9DL4H3LBV3mThDQmJDyD">
+  <div class="quote-container reveal" data-page-node-id="8kO1kXhmSJQmfKilw0gqPc">
+    <p class="quote-text" data-page-node-id="pICRxdvr7dDgCdFNvaUhvH">AI不会取代项目经理，但会放大优秀项目经理的价值。</p>
+    <p class="quote-author" data-page-node-id="spx3DStTcAeIze08cY2Aw4">PMI中国AI项目管理社区</p>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section" data-page-node-id="3tZYDgKtQD3Hc4tYL4tg4l">
+  <div class="cta-bg" data-page-node-id="gyF3Px51zlpQ8gWj1Xr98F"></div>
+  <div class="cta-content reveal" data-page-node-id="zzN1TwsvLSIrpWrmgTJRbh">
+    <h2 class="cta-title" data-page-node-id="MaduIjVZULX8AXhtenzKax">加入中国最落地的AI×项目管理社区</h2>
+    <p class="cta-desc" data-page-node-id="MERH5LyznUAXClkThAGYz0">立即注册，领取你的第一个项目智能体</p>
+    <div class="cta-buttons" data-page-node-id="k46UScGsZUV0vmgMSsOCTT">
+      <a href="https://aipm.pmi.bj.cn" target="_blank" class="btn-primary" data-page-node-id="dPrTbiftJoS1lwE2xx3BgU">免费加入社区</a>
+      <a href="https://www.twzx.bj.cn/cases.html" target="_blank" class="btn-secondary" data-page-node-id="ZVZSsvjaNnt7hLbCZnMhBY">浏览案例库</a>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer" data-page-node-id="1A8SutaSlFs7ohgTG1KPNK">
+  <div class="footer-content" data-page-node-id="qTnxLL2W1ZdTStXjW6xgDZ">
+    <div class="footer-links" data-page-node-id="CbdVbLg73NpdnuD7IuYIE8">
+      <a href="/" data-page-node-id="eE7p1pkWhM55DdH7mPBDEO">首页</a>
+      <a href="https://www.twzx.bj.cn/cases.html" target="_blank" data-page-node-id="EgduSxFNAgzVd9NyVzdORp">行业案例库</a>
+      <a href="/agents.html" data-page-node-id="jYdIIroo4Nvx3z6Odvb3c7">智能体能力</a>
+      <a href="/knowledge.html" data-page-node-id="dJRf3J53KYdiUAAns5J5YM">知识库</a>
+      <a href="/ai-assist.html" data-page-node-id="lIINBO870dvFz80aBHmeyk">AI问答助手</a>
+    </div>
+    <div class="footer-copy" data-page-node-id="QWC9cg84qNMgGwSZRlvkzO">© 2026 PMI中国·AI项目管理社区 | 运营主体：北京通维管理咨询有限公司</div>
+    <div class="footer-filing" data-page-node-id="KtDOarf8oVpEMfLPTpzuFt">
+      <a href="https://beian.miit.gov.cn/" target="_blank" data-page-node-id="SiYKqIuAGprGuJLhtf2Iz2">京ICP备2025132411号-3</a>
+      &nbsp;|&nbsp;
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502061159" target="_blank" data-page-node-id="EgRJzVaLDvKfuOBuYFOXie">京公网安备11010502061159号</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== 粒子动画 =====
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let mouse = { x: null, y: null };
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 0.5;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.speedY = Math.random() * 1 - 0.5;
+    this.opacity = Math.random() * 0.5 + 0.1;
+  }
+  
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    
+    if (this.x > canvas.width) this.x = 0;
+    if (this.x < 0) this.x = canvas.width;
+    if (this.y > canvas.height) this.y = 0;
+    if (this.y < 0) this.y = canvas.height;
+    
+    if (mouse.x != null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < 100) {
+        this.x -= dx * 0.02;
+        this.y -= dy * 0.02;
+      }
+    }
+  }
+  
+  draw() {
+    ctx.fillStyle = `rgba(201, 169, 97, ${this.opacity})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = [];
+  const count = Math.min(80, Math.floor(canvas.width * canvas.height / 15000));
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
+  }
+}
+initParticles();
+
+function connectParticles() {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a + 1; b < particles.length; b++) {
+      const dx = particles[a].x - particles[b].x;
+      const dy = particles[a].y - particles[b].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < 120) {
+        const opacity = (1 - distance / 120) * 0.15;
+        ctx.strokeStyle = `rgba(0, 245, 212, ${opacity})`;
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  
+  connectParticles();
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ===== 导航栏滚动效果 =====
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// ===== 数字计数动画 =====
+function animateCounter(element) {
+  const target = parseInt(element.getAttribute('data-target'));
+  const duration = 2000;
+  const step = target / (duration / 16);
+  let current = 0;
+  
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      element.textContent = target.toLocaleString();
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current).toLocaleString();
+    }
+  }, 16);
+}
+
+// ===== Intersection Observer =====
+const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      const counters = entry.target.querySelectorAll('[data-target]');
+      counters.forEach(counter => {
+        if (!counter.classList.contains('counted')) {
+          animateCounter(counter);
+          counter.classList.add('counted');
+        }
+      });
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

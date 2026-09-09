@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMI中国 · Agent能力 | AI项目管理社区</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --deep-navy: #0a0e1a;
+  --navy-mid: #0d1b2a;
+  --pmi-blue: #003DA5;
+  --pmi-blue-glow: #0066ff;
+  --gold: #c9a961;
+  --gold-light: #e8d5a0;
+  --cyan: #00f5d4;
+  --purple: #7b2cbf;
+  --text-primary: #ffffff;
+  --text-secondary: #8892a4;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--deep-navy);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.15em;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logo-mark {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark svg { width: 100%; height: 100%; }
+.logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.logo-text .ai { color: #FF6F00; } /* 活力橙 */
+.logo-text .pm { color: #00C1DE; } /* 专业青 */
+.logo-text .cube {
+  color: #8B5CF6; /* 智慧紫 */
+  font-size: 1rem;
+  font-weight: 700;
+  vertical-align: super;
+  position: relative;
+  top: -0.4em;
+}
+.logo-text .sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 1px solid var(--glass-border);
+}
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy) !important;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 169, 7, 0.4); }
+.nav-cta::after { display: none !important; }
+
+.page-header {
+  padding: 8rem 2rem 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 61, 165, 0.2) 0%, transparent 100%);
+}
+
+.page-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-header p { color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+
+.content { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 3rem; }
+
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 169, 7, 0.1);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--pmi-blue), var(--cyan));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; color: var(--text-primary); }
+.card p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+
+.tag {
+  display: inline-block;
+  background: rgba(0, 245, 212, 0.1);
+  color: var(--cyan);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(0, 245, 212, 0.2);
+}
+
+.tag.gold {
+  background: rgba(201, 169, 7, 0.1);
+  color: var(--gold);
+  border-color: rgba(201, 169, 7, 0.2);
+}
+
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 61, 165, 0.15) 100%);
+  margin-top: 2rem;
+}
+
+.cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+.cta-section p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem; }
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s;
+  box-shadow: 0 10px 30px rgba(201, 169, 7, 0.3);
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(201, 169, 7, 0.5); }
+
+.steps { display: flex; gap: 2rem; margin: 3rem 0; flex-wrap: wrap; justify-content: center; }
+
+.step {
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  text-align: center;
+  padding: 2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  position: relative;
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.step h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem; color: var(--text-primary); }
+.step p { font-size: 0.9rem; color: var(--text-secondary); }
+
+.footer {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--glass-border);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content { max-width: 1200px; margin: 0 auto; }
+.footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1rem; }
+.footer-filing { color: var(--text-secondary); font-size: 0.8rem; }
+.footer-filing a { color: var(--text-secondary); text-decoration: none; }
+.footer-filing a:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .page-header h1 { font-size: 2rem; }
+  .grid { grid-template-columns: 1fr; }
+  .steps { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 左上 - 活力橙 -->
+          <rect x="10" y="10" width="35" height="35" rx="6" fill="#FF6F00"/>
+          <!-- 右上 - 专业青 -->
+          <rect x="55" y="10" width="35" height="35" rx="6" fill="#00C1DE"/>
+          <!-- 左下 - 智慧紫 -->
+          <rect x="10" y="55" width="35" height="35" rx="6" fill="#8B5CF6"/>
+          <!-- 右下 - 生态绿 -->
+          <rect x="55" y="55" width="35" height="35" rx="6" fill="#00E5A0"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="ai">AI</span><span class="pm">PM</span><span class="cube">³</span>
+        <span class="sub">PMI中国AI项目管理社区</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">首页</a></li>
+      <li><a href="https://www.twzx.bj.cn/cases.html" target="_blank">行业案例库</a></li>
+      <li><a href="/agents.html" style="color:var(--gold)">智能体能力</a></li>
+      <li><a href="/knowledge.html">知识库</a></li>
+      <li><a href="/ai-assist.html">AI问答助手</a></li>
+      <li><a href="/join.html">加入社区</a></li>
+      <li><a href="https://aipm.pmi.bj.cn" class="nav-cta" target="_blank">进入系统 →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>🤖 Agent 能力库</h1>
+  <p>基于 PMBOK 2024 和 CPMAI 标准，提供 61 个专业智能体，覆盖项目全生命周期管理</p>
+</div>
+
+<div class="content">
+  <h2 style="font-family:'Space Grotesk';font-size:1.8rem;margin-bottom:2rem;color:var(--gold)">核心能力矩阵</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h2>PMBOK 知识领域</h2>
+      <p>整合、进度、成本、质量、资源、沟通、风险、采购、干系人管理</p>
+      <span class="tag">49个Skill</span>
+      <span class="tag gold">248项工具</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h2>AI 治理智能体</h2>
+      <p>负责任AI、模型评估、透明度、伦理判断、社会影响分析</p>
+      <span class="tag">CPMAI标准</span>
+      <span class="tag gold">7个Agent</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h2>工作流引擎</h2>
+      <p>多Agent协作、流程编排、结果验证、可视化监控</p>
+      <span class="tag">11个Workflow</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h2>EVM 挣值管理</h2>
+      <p>挣值分析、偏差预测、绩效指数、趋势可视化</p>
+      <span class="tag gold">传统+AI融合</span>
+    </div>
+  </div>
+
+  <h2 style="font-family:'Space Grotesk';font-size:1.8rem;margin:3rem 0 2rem;color:var(--gold)">如何使用</h2>
+  <div class="steps">
+    <div class="step"><div class="step-number">1</div><h3>选择场景</h3><p>根据项目阶段选择对应智能体</p></div>
+    <div class="step"><div class="step-number">2</div><h3>输入需求</h3><p>描述项目背景、约束条件、期望输出</p></div>
+    <div class="step"><div class="step-number">3</div><h3>获取方案</h3><p>AI生成可执行的项目管理方案</p></div>
+    <div class="step"><div class="step-number">4</div><h3>迭代优化</h3><p>基于反馈调整方案，直至满意</p></div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>立即体验 AI 项目管理</h2>
+  <p>登录 AIPM 系统，开启智能项目管理新时代</p>
+  <a href="https://aipm.pmi.bj.cn" class="btn-primary" target="_blank">进入 AIPM 系统 →</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="/">首页</a>
+      <a href="https://www.twzx.bj.cn/cases.html" target="_blank">行业案例库</a>
+      <a href="/agents.html" style="color:var(--gold)">智能体能力</a>
+      <a href="/knowledge.html">知识库</a>
+      <a href="/ai-assist.html">AI问答助手</a>
+      <a href="/join.html">加入社区</a>
+    </div>
+    <div class="footer-copy">© 2026 PMI中国·AI项目管理社区 | 运营主体：北京通维管理咨询有限公司</div>
+    <div class="footer-filing">
+      <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2025132411号-3</a>
+      &nbsp;|&nbsp;
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502061159" target="_blank">京公网安备11010502061159号</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+</script>
+</body>
+</html>

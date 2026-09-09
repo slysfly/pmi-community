@@ -1,0 +1,537 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-08-28T23:50:00Z",
+  "agents": [
+    {
+      "id": "pmbok:10.1",
+      "name": "规划沟通管理",
+      "category": "沟通管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "沟通管理"
+    },
+    {
+      "id": "pmbok:10.2",
+      "name": "管理沟通",
+      "category": "沟通管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "沟通管理"
+    },
+    {
+      "id": "pmbok:10.3",
+      "name": "监督沟通",
+      "category": "沟通管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "沟通管理"
+    },
+    {
+      "id": "pmbok:11.1",
+      "name": "规划风险管理",
+      "category": "风险管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "风险管理"
+    },
+    {
+      "id": "pmbok:11.2",
+      "name": "识别风险",
+      "category": "风险管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "风险管理"
+    },
+    {
+      "id": "pmbok:11.3",
+      "name": "实施定性风险分析",
+      "category": "风险管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "风险管理"
+    },
+    {
+      "id": "pmbok:11.4",
+      "name": "实施定量风险分析",
+      "category": "风险管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "风险管理"
+    },
+    {
+      "id": "pmbok:11.5",
+      "name": "规划风险应对",
+      "category": "风险管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "风险管理"
+    },
+    {
+      "id": "pmbok:11.6",
+      "name": "实施风险应对",
+      "category": "风险管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "风险管理"
+    },
+    {
+      "id": "pmbok:11.7",
+      "name": "监督风险",
+      "category": "风险管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "风险管理"
+    },
+    {
+      "id": "pmbok:12.1",
+      "name": "规划采购管理",
+      "category": "采购管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "采购管理"
+    },
+    {
+      "id": "pmbok:12.2",
+      "name": "实施采购",
+      "category": "采购管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "采购管理"
+    },
+    {
+      "id": "pmbok:12.3",
+      "name": "控制采购",
+      "category": "采购管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "采购管理"
+    },
+    {
+      "id": "pmbok:13.1",
+      "name": "识别干系人",
+      "category": "干系人管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "干系人管理"
+    },
+    {
+      "id": "pmbok:13.2",
+      "name": "规划干系人参与",
+      "category": "干系人管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "干系人管理"
+    },
+    {
+      "id": "pmbok:13.3",
+      "name": "管理干系人参与",
+      "category": "干系人管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "干系人管理"
+    },
+    {
+      "id": "pmbok:13.4",
+      "name": "监督干系人参与",
+      "category": "干系人管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "干系人管理"
+    },
+    {
+      "id": "pmbok:4.1",
+      "name": "制定项目章程",
+      "category": "整合管理",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "规划",
+      "knowledge_area": "整合管理"
+    },
+    {
+      "id": "pmbok:4.2",
+      "name": "制定项目管理计划",
+      "category": "整合管理",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "规划",
+      "knowledge_area": "整合管理"
+    },
+    {
+      "id": "pmbok:4.3",
+      "name": "指导与管理项目工作",
+      "category": "整合管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "整合管理"
+    },
+    {
+      "id": "pmbok:4.4",
+      "name": "管理项目知识",
+      "category": "整合管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "整合管理"
+    },
+    {
+      "id": "pmbok:4.5",
+      "name": "监控项目工作",
+      "category": "整合管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "整合管理"
+    },
+    {
+      "id": "pmbok:4.6",
+      "name": "实施整体变更控制",
+      "category": "整合管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "整合管理"
+    },
+    {
+      "id": "pmbok:4.7",
+      "name": "结束项目或阶段",
+      "category": "整合管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "整合管理"
+    },
+    {
+      "id": "pmbok:5.1",
+      "name": "规划范围管理",
+      "category": "范围管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "范围管理"
+    },
+    {
+      "id": "pmbok:5.2",
+      "name": "收集需求",
+      "category": "范围管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "范围管理"
+    },
+    {
+      "id": "pmbok:5.3",
+      "name": "定义范围",
+      "category": "范围管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "范围管理"
+    },
+    {
+      "id": "pmbok:5.4",
+      "name": "创建WBS",
+      "category": "范围管理",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "规划",
+      "knowledge_area": "范围管理"
+    },
+    {
+      "id": "pmbok:5.5",
+      "name": "确认范围",
+      "category": "范围管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "范围管理"
+    },
+    {
+      "id": "pmbok:5.6",
+      "name": "控制范围",
+      "category": "范围管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "范围管理"
+    },
+    {
+      "id": "pmbok:6.1",
+      "name": "规划进度管理",
+      "category": "进度管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "进度管理"
+    },
+    {
+      "id": "pmbok:6.2",
+      "name": "定义活动",
+      "category": "进度管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "进度管理"
+    },
+    {
+      "id": "pmbok:6.3",
+      "name": "排列活动顺序",
+      "category": "进度管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "进度管理"
+    },
+    {
+      "id": "pmbok:6.4",
+      "name": "估算活动持续时间",
+      "category": "进度管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "进度管理"
+    },
+    {
+      "id": "pmbok:6.5",
+      "name": "制定进度计划",
+      "category": "进度管理",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "规划",
+      "knowledge_area": "进度管理"
+    },
+    {
+      "id": "pmbok:6.6",
+      "name": "控制进度",
+      "category": "进度管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "进度管理"
+    },
+    {
+      "id": "pmbok:7.1",
+      "name": "规划成本管理",
+      "category": "成本管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "成本管理"
+    },
+    {
+      "id": "pmbok:7.2",
+      "name": "估算成本",
+      "category": "成本管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "成本管理"
+    },
+    {
+      "id": "pmbok:7.3",
+      "name": "制定预算",
+      "category": "成本管理",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "规划",
+      "knowledge_area": "成本管理"
+    },
+    {
+      "id": "pmbok:7.4",
+      "name": "控制成本",
+      "category": "成本管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "成本管理"
+    },
+    {
+      "id": "pmbok:8.1",
+      "name": "规划质量管理",
+      "category": "质量管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "质量管理"
+    },
+    {
+      "id": "pmbok:8.2",
+      "name": "管理质量",
+      "category": "质量管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "质量管理"
+    },
+    {
+      "id": "pmbok:8.3",
+      "name": "控制质量",
+      "category": "质量管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "质量管理"
+    },
+    {
+      "id": "pmbok:9.1",
+      "name": "规划资源管理",
+      "category": "资源管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "资源管理"
+    },
+    {
+      "id": "pmbok:9.2",
+      "name": "估算活动资源",
+      "category": "资源管理",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "规划",
+      "knowledge_area": "资源管理"
+    },
+    {
+      "id": "pmbok:9.3",
+      "name": "获取资源",
+      "category": "资源管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "资源管理"
+    },
+    {
+      "id": "pmbok:9.4",
+      "name": "建设团队",
+      "category": "资源管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "资源管理"
+    },
+    {
+      "id": "pmbok:9.5",
+      "name": "管理团队",
+      "category": "资源管理",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "规划",
+      "knowledge_area": "资源管理"
+    },
+    {
+      "id": "pmbok:9.6",
+      "name": "控制资源",
+      "category": "资源管理",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "规划",
+      "knowledge_area": "资源管理"
+    },
+    {
+      "id": "report",
+      "name": "报告生成Agent",
+      "category": "领域分析",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "evm",
+      "name": "挣值分析Agent",
+      "category": "领域分析",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "risk",
+      "name": "风险检测Agent",
+      "category": "领域分析",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "wbs",
+      "name": "WBS生成Agent",
+      "category": "领域分析",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "meeting_minutes",
+      "name": "纪要转任务Agent",
+      "category": "领域分析",
+      "new_category": "tool",
+      "category_name": "工具类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "resource",
+      "name": "资源管理Agent",
+      "category": "领域分析",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "quality",
+      "name": "质量管理Agent",
+      "category": "领域分析",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "compliance",
+      "name": "合规检查Agent",
+      "category": "领域分析",
+      "new_category": "doc",
+      "category_name": "文档类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "health_check",
+      "name": "健康检查Agent",
+      "category": "领域分析",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    },
+    {
+      "id": "decision",
+      "name": "决策支持Agent",
+      "category": "领域分析",
+      "new_category": "tech",
+      "category_name": "技术类",
+      "process_group": "",
+      "knowledge_area": "领域分析"
+    }
+  ]
+}

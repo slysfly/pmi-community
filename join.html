@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMI中国 · 加入社区 | AI项目管理社区</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="加入PMI中国AI项目管理社区，连接68万PMI人才，获取AI项目管理工具和案例。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --deep-navy: #0a0e1a;
+  --navy-mid: #0d1b2a;
+  --pmi-blue: #003DA5;
+  --pmi-blue-glow: #0066ff;
+  --gold: #c9a961;
+  --gold-light: #e8d5a0;
+  --cyan: #00f5d4;
+  --purple: #7b2cbf;
+  --text-primary: #ffffff;
+  --text-secondary: #8892a4;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--deep-navy);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===== 导航栏 ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.15em;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logo-mark {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.logo-text .ai { color: #FF6F00; } /* 活力橙 */
+.logo-text .pm { color: #00C1DE; } /* 专业青 */
+.logo-text .cube {
+  color: #8B5CF6; /* 智慧紫 */
+  font-size: 1rem;
+  font-weight: 700;
+  vertical-align: super;
+  position: relative;
+  top: -0.4em;
+}
+.logo-text .sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 1px solid var(--glass-border);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.nav-cta {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy) !important;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 169, 7, 0.4);
+}
+
+.nav-cta::after { display: none !important; }
+
+/* ===== 页面头部 ===== */
+.page-header {
+  padding: 8rem 2rem 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 61, 165, 0.25) 0%, transparent 100%);
+}
+
+.page-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold) 50%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-header p {
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ===== 内容区域 ===== */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ===== 二维码区域 ===== */
+.qr-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.qr-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.qr-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(201, 169, 7, 0.15);
+}
+
+.qr-placeholder {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed var(--glass-border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--text-secondary);
+}
+
+.qr-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.qr-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===== 社区优势 ===== */
+.advantages {
+  margin: 4rem 0;
+}
+
+.advantages h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.advantage-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.advantage-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.advantage-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--pmi-blue), var(--cyan));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 1.25rem;
+}
+
+.advantage-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.advantage-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ===== 加入步骤 ===== */
+.steps-section {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.steps-section h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--gold);
+}
+
+.steps {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.step {
+  flex: 1;
+  min-width: 200px;
+  max-width: 260px;
+  position: relative;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0 auto 1rem;
+}
+
+.step h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ===== 统计数据 ===== */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 3rem 2rem;
+  background: var(--glass-bg);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item b {
+  display: block;
+  font-size: 3rem;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.stat-item span {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ===== CTA区域 ===== */
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 61, 165, 0.2) 100%);
+  margin-top: 2rem;
+}
+
+.cta-section h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.cta-section p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1.1rem 3rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--deep-navy);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.3s;
+  box-shadow: 0 10px 30px rgba(201, 169, 7, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 45px rgba(201, 169, 7, 0.5);
+}
+
+/* ===== 页脚 ===== */
+.footer {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--glass-border);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content { max-width: 1200px; margin: 0 auto; }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-links a.active { color: var(--gold); }
+
+.footer-copy {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.footer-filing {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.footer-filing a { color: var(--text-secondary); text-decoration: none; }
+.footer-filing a:hover { color: var(--gold); }
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .page-header h1 { font-size: 2.2rem; }
+  .stats { gap: 2rem; }
+  .steps { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<!-- 导航栏 -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 左上 - 活力橙 -->
+          <rect x="10" y="10" width="35" height="35" rx="6" fill="#FF6F00"/>
+          <!-- 右上 - 专业青 -->
+          <rect x="55" y="10" width="35" height="35" rx="6" fill="#00C1DE"/>
+          <!-- 左下 - 智慧紫 -->
+          <rect x="10" y="55" width="35" height="35" rx="6" fill="#8B5CF6"/>
+          <!-- 右下 - 生态绿 -->
+          <rect x="55" y="55" width="35" height="35" rx="6" fill="#00E5A0"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="ai">AI</span><span class="pm">PM</span><span class="cube">³</span>
+        <span class="sub">PMI中国AI项目管理社区</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">首页</a></li>
+      <li><a href="https://www.twzx.bj.cn/cases.html" target="_blank">行业案例库</a></li>
+      <li><a href="/agents.html">智能体Agent</a></li>
+      <li><a href="/knowledge.html">飞书知识库</a></li>
+      <li><a href="/ai-assist.html">AI问答</a></li>
+      <li><a href="/join.html" class="active">加入社区</a></li>
+      <li><a href="https://aipm.pmi.bj.cn" class="nav-cta" target="_blank">进入系统 →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- 页面标题 -->
+<div class="page-header">
+  <h1>加入 PMI 中国 AI 项目管理社区</h1>
+  <p>连接68万PMI人才生态，共享AI驱动的项目管理新范式。扫码加入我们，开启智能项目管理之旅。</p>
+</div>
+
+<!-- 统计数据 -->
+<div class="stats">
+  <div class="stat-item"><b>68万+</b><span>PMI会员</span></div>
+  <div class="stat-item"><b>1,400+</b><span>实战案例</span></div>
+  <div class="stat-item"><b>14</b><span>行业领域</span></div>
+  <div class="stat-item"><b>61</b><span>专业智能体</span></div>
+</div>
+
+<!-- 内容区域 -->
+<div class="content">
+  <!-- 二维码区域 -->
+  <div class="qr-section">
+    <div class="qr-card">
+      <div class="qr-placeholder">
+        <span>📱</span>
+      </div>
+      <h3>微信社群</h3>
+      <p>扫码加入PMI中国AI项目管理微信交流群<br>与68万PMI会员一起成长</p>
+    </div>
+    <div class="qr-card">
+      <div class="qr-placeholder">
+        <span>🤖</span>
+      </div>
+      <h3>AIPM 系统</h3>
+      <p>扫码体验AIPM智能体平台<br>开启AI驱动的项目管理新时代</p>
+    </div>
+    <div class="qr-card">
+      <div class="qr-placeholder">
+        <span>📖</span>
+      </div>
+      <h3>知识库</h3>
+      <p>扫码访问飞书知识库<br>获取方法论、工具与案例资源</p>
+    </div>
+  </div>
+
+  <!-- 社区优势 -->
+  <div class="advantages">
+    <h2>社区核心价值</h2>
+    <div class="advantages-grid">
+      <div class="advantage-card">
+        <div class="advantage-icon">🤖</div>
+        <h3>智能体平台</h3>
+        <p>基于PMBOK 2024和CPMAI标准，提供61个专业智能体，覆盖项目全生命周期管理。</p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">📊</div>
+        <h3>行业案例库</h3>
+        <p>1,400+真实行业案例，覆盖医疗健康、金融、科技、教育等14个行业领域。</p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">🏆</div>
+        <h3>成就自己</h3>
+        <p>加入PMI中国AI社区，连接68万PMI人才，拓展职业人脉，共享最佳实践，推动个人成长。</p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">👥</div>
+        <h3>人脉生态</h3>
+        <p>连接68万PMI会员，拓展职业人脉，分享最佳实践，共同推动行业发展。</p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">📚</div>
+        <h3>知识资源</h3>
+        <p>飞书知识库汇集方法论、工具模板、实战指南，助你快速提升项目管理能力。</p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">🚀</div>
+        <h3>AI赋能</h3>
+        <p>AI驱动的WBS生成、风险预测、挣值分析，让项目管理更高效、更智能。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 加入步骤 -->
+  <div class="steps-section">
+    <h2>如何加入</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>扫码入群</h3>
+        <p>扫描上方二维码，申请加入微信社群</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>实名认证</h3>
+        <p>提供PMI会员编号或相关证明，完成认证</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>开通权限</h3>
+        <p>认证通过后，开通AIPM系统访问权限</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>开始使用</h3>
+        <p>体验智能体工具，探索案例库与知识库</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA区域 -->
+<div class="cta-section">
+  <h2>立即开启 AI 项目管理之旅</h2>
+  <p>加入PMI中国AI项目管理社区，与68万会员共同成长</p>
+  <a href="https://aipm.pmi.bj.cn" class="btn-primary" target="_blank">免费试用 AIPM →</a>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="/">首页</a>
+      <a href="https://www.twzx.bj.cn/cases.html" target="_blank">行业案例库</a>
+      <a href="/agents.html">智能体Agent</a>
+      <a href="/knowledge.html">飞书知识库</a>
+      <a href="/ai-assist.html">AI问答</a>
+      <a href="/join.html" class="active">加入社区</a>
+    </div>
+    <div class="footer-copy">© 2026 PMI中国·AI项目管理社区 | 运营主体：北京通维管理咨询有限公司</div>
+    <div class="footer-filing">
+      <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2025132411号-3</a>
+      &nbsp;|&nbsp;
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502061159" target="_blank">京公网安备11010502061159号</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+</script>
+</body>
+</html>
