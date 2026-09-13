@@ -37,6 +37,10 @@ The official website for the **PMI China AI Project-Management Community**, with
 本站以 **MIT 协议** 开源，详见 [LICENSE](./LICENSE)。
 Licensed under the **MIT License** — see [LICENSE](./LICENSE).
 
+> - **版权所有 / Copyright**: 北京通维管理咨询有限公司（Beijing Tongwei Management Consulting Co., Ltd.）
+> - **使用方 / Used by**: PMI 中国 AI 项目管理社区（PMI China AI Project Management Community）
+> - MIT 中文参考：本软件按"原样"提供，不提供任何形式的担保；权利与限制以 [LICENSE](./LICENSE) 英文原文为准。
+
 ---
 
 ## 🏢 关于 / About
