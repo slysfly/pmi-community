@@ -303,6 +303,10 @@ fetch('/api/cases')
     industries = data.industries;
     renderIndustryGrid();
     loadAllCases();
+  })
+  .catch(err => {
+    console.error('加载案例数据失败:', err);
+    document.getElementById('caseList').innerHTML = '<div class="loading">案例加载失败，请稍后重试</div>';
   });
 
 function renderIndustryGrid() {
@@ -310,19 +314,25 @@ function renderIndustryGrid() {
   let html = '<div class="industry-card active" onclick="filterIndustry(null)"><h3>全部行业</h3><p>' + industries.length + ' 个分类</p></div>';
   industries.forEach(ind => {
     const name = ind.replace(/^M\d+_/,'');
-    html += '<div class="industry-card" onclick="filterIndustry(\\'' + ind + '\\')"><h3>' + name + '</h3><p>查看案例 →</p></div>';
+    html += '<div class="industry-card" onclick="filterIndustry(\'' + ind + '\')"><h3>' + name + '</h3><p>查看案例 →</p></div>';
   });
   grid.innerHTML = html;
 }
 
 async function loadAllCases() {
-  const resp = await fetch('/api/cases');
-  const data = await resp.json();
-  allCases = [];
-  Object.entries(data.industries).forEach(([ind, cases]) => {
-    cases.forEach(c => allCases.push({ name: c, industry: ind }));
-  });
-  renderCases(allCases, '全部案例');
+  // /api/cases 返回的 industries 是字符串数组，案例名需逐行业调用 /api/cases/industry/{name} 获取
+  try {
+    const results = await Promise.all(industries.map(ind =>
+      fetch('/api/cases/industry/' + encodeURIComponent(ind))
+        .then(r => r.json())
+        .then(d => (d.cases || []).map(c => ({ name: c, industry: ind })))
+    ));
+    allCases = results.flat();
+    renderCases(allCases, '全部案例');
+  } catch (err) {
+    console.error('加载案例列表失败:', err);
+    document.getElementById('caseList').innerHTML = '<div class="loading">案例加载失败，请稍后重试</div>';
+  }
 }
 
 function filterIndustry(industry) {
